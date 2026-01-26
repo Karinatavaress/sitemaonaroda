@@ -1,0 +1,320 @@
+/* CONFIGURAÇÕES GERAIS E VARIÁVEIS */
+:root {
+    --neon-yellow: #DFFF00;
+    --dark-bg: #050505;
+    --dark-card: #121212;
+    --text-gray: #b3b3b3;
+    --white: #ffffff;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    scroll-behavior: smooth;
+    scroll-padding-top: 15px; 
+}
+
+body {
+    background-color: var(--dark-bg);
+    color: var(--white);
+    overflow-x: hidden;
+}
+
+/* HEADER & LOGO */
+header {
+    background: rgba(0, 0, 0, 0.5); 
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px); 
+
+    padding: 10px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 9999;
+    border-bottom: 1px solid rgba(223, 255, 0, 0.2); 
+    transition: background 0.3s ease; 
+}
+
+.logo-img {
+    height: 60px;
+    width: auto;
+    border-radius: 5px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav ul li a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    transition: var(--transition);
+}
+
+nav ul li a:hover {
+    color: var(--neon-yellow);
+}
+
+/* HERO */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 100px 5%;
+    /* Sua imagem de fundo aqui */
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), 
+                url('../img/img9.jpeg') no-repeat center center/cover;
+    gap: 30px;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    font-weight: 900;
+    line-height: 1.1; 
+    text-transform: uppercase;
+    margin: 0; 
+}
+
+.hero p {
+    font-size: 1.3rem;
+    max-width: 800px;
+    color: var(--text-gray);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* BOTÃO */
+.btn-primary {
+    background-color: var(--neon-yellow);
+    color: #000;
+    padding: 18px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 800;
+    text-transform: uppercase;
+    transition: var(--transition);
+}
+
+.btn-primary:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(223, 255, 0, 0.3);
+}
+
+/* PRODUTOS */
+.container {
+    padding: 70px 8%;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+}
+
+.section-header div {
+    height: 4px;
+    width: 80px;
+    background: var(--neon-yellow);
+    margin: 15px auto;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.product-card {
+    background: var(--dark-card);
+    border-radius: 15px;
+    padding: 20px; 
+    transition: var(--transition);
+    border: 1px solid #222;
+    text-align: center;   
+    display: flex;           
+    flex-direction: column;  
+    align-items: center;     
+}
+
+.product-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.product-info {
+    width: 100%;
+}
+
+.product-info h3 {
+    color: var(--neon-yellow);
+    margin-bottom: 10px;
+    font-size: 1.4rem; 
+}
+
+.product-info p {
+    color: var(--text-gray);
+    margin-bottom: 15px;
+}
+
+/* WHATSAPP & FOOTER */
+.whatsapp-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #25d366;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 30px;
+    z-index: 9999;
+}
+
+footer {
+    background: #000;
+    text-align: center;
+    padding: 40px;
+    border-top: 1px solid #333;
+}
+
+.contato {
+    background-color: #080808 !important;
+    padding: 80px 8% !important;
+    width: 100% !important;
+    display: block !important;
+    height: auto !important;
+    position: relative !important;
+    overflow: visible !important;
+}
+
+.contato-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important; 
+    gap: 80px !important; 
+    align-items: center !important;
+    max-width: 1200px;
+    margin: 50px auto 0 auto;
+}
+
+.contato-card {
+    background: linear-gradient(145deg, #1a1a1a, #0a0a0a) !important;
+    padding: 50px !important;
+    border-radius: 25px !important;
+    border: 1px solid #222 !important;
+    text-align: center !important;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5) !important;
+    height: auto !important;
+}
+
+.contato-info {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 30px !important;
+}
+
+.info-item {
+    display: flex !important;
+    align-items: center !important; 
+    gap: 20px !important;
+    text-align: left !important;
+}
+
+.info-item i {
+    font-size: 1.8rem !important;
+    color: var(--neon-yellow) !important;
+    background: rgba(223, 255, 0, 0.1) !important;
+    padding: 15px !important;
+    border-radius: 12px !important;
+    width: 60px !important;
+    height: 60px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.info-item h3 {
+    font-size: 1.2rem !important;
+    color: var(--white) !important;
+    margin-bottom: 5px !important;
+    text-transform: uppercase !important;
+}
+
+.info-item p {
+    color: var(--text-gray) !important;
+    font-size: 1rem !important;
+    margin: 0 !important; 
+}
+
+/* RESPONSIVIDADE*/
+@media (max-width: 992px) {
+    .contato {
+        padding: 60px 5% 150px 5% !important;
+    }
+
+    .contato-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 40px !important;
+    }
+
+    .contato-card {
+        padding: 30px 20px !important;
+        width: 100% !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding-top: 120px !important; 
+        gap: 20px !important; 
+        min-height: 85vh !important; 
+        padding-bottom: 40px !important;
+    }
+
+    .hero h1 {
+        font-size: 2.1rem !important; 
+        line-height: 1.2 !important;
+        margin-bottom: 5px !important;
+    }
+
+    .hero p {
+        font-size: 1.05rem !important;
+        line-height: 1.5 !important;
+        margin-bottom: 15px !important;
+        max-width: 90%; 
+    }
+
+    .btn-contato {
+        padding: 15px 25px !important;
+        font-size: 0.95rem !important;
+        width: auto !important;
+        display: inline-flex !important;
+    }
+}
