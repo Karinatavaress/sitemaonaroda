@@ -291,32 +291,31 @@ footer {
 }
 
 @media (max-width: 768px) {
-    /* Faz o menu não cortar e ter mais espaço */
+
     header {
         padding: 1rem 2%;
-        flex-wrap: wrap; /* Permite que o menu desça se não couber */
+        flex-wrap: wrap; 
     }
 
     .navbar {
         display: flex;
-        gap: 10px; /* Diminui o espaço entre os links no mobile */
+        gap: 10px;
     }
 
     .navbar a {
-        font-size: 14px; /* Diminui um pouco a letra para caber tudo */
+        font-size: 14px; 
     }
 
-    /* Alonga a primeira seção (Home) */
     .home {
-        min-height: 100vh; /* Faz a seção ocupar a tela inteira do celular */
+        min-height: 100vh;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        padding-top: 80px; /* Evita que o menu cubra o título */
+        padding-top: 80px;
     }
 
     .home-content h1 {
-        font-size: 2.5rem; /* Ajusta o tamanho do título no celular */
+        font-size: 2.5rem; 
         line-height: 1.2;
     }
 }
@@ -341,3 +340,14 @@ footer {
         width: auto !important;
         display: inline-flex !important;
     }
+
+.instagram-link {
+    color: #D7F31F !important;
+    font-weight: bold; 
+    text-decoration: none;
+}
+
+.instagram-link:hover {
+    filter: brightness(0.9); 
+    color: #D7F31F !important;
+}
