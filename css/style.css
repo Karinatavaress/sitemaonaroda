@@ -341,13 +341,12 @@ footer {
         display: inline-flex !important;
     }
 
-.instagram-link {
+a.link-social[href*="instagram"] {
     color: #D7F31F !important;
-    font-weight: bold; 
-    text-decoration: none;
+    font-weight: bold !important;
+    text-decoration: none !important;
 }
 
-.instagram-link:hover {
-    filter: brightness(0.9); 
-    color: #D7F31F !important;
+a.link-social[href*="instagram"]:hover {
+    color: #ffffff !important;
 }
