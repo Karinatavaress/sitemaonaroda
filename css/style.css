@@ -291,12 +291,36 @@ footer {
 }
 
 @media (max-width: 768px) {
-    .hero {
-        padding-top: 120px !important; 
-        gap: 20px !important; 
-        min-height: 85vh !important; 
-        padding-bottom: 40px !important;
+    /* Faz o menu não cortar e ter mais espaço */
+    header {
+        padding: 1rem 2%;
+        flex-wrap: wrap; /* Permite que o menu desça se não couber */
     }
+
+    .navbar {
+        display: flex;
+        gap: 10px; /* Diminui o espaço entre os links no mobile */
+    }
+
+    .navbar a {
+        font-size: 14px; /* Diminui um pouco a letra para caber tudo */
+    }
+
+    /* Alonga a primeira seção (Home) */
+    .home {
+        min-height: 100vh; /* Faz a seção ocupar a tela inteira do celular */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-top: 80px; /* Evita que o menu cubra o título */
+    }
+
+    .home-content h1 {
+        font-size: 2.5rem; /* Ajusta o tamanho do título no celular */
+        line-height: 1.2;
+    }
+}
+
 
     .hero h1 {
         font-size: 2.1rem !important; 
@@ -317,4 +341,3 @@ footer {
         width: auto !important;
         display: inline-flex !important;
     }
-}
