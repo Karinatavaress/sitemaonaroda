@@ -142,55 +142,54 @@ nav ul li a:hover {
 
 .product-grid {
     display: grid;
-    /* Trocamos auto-fit por auto-fill para ele respeitar o tamanho mesmo vazio */
+    /* Mantém suas colunas responsivas */
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 30px;
-    /* Centraliza o grid caso tenha poucos itens */
+    
+    /* ESSA É A LINHA MÁGICA QUE CENTRALIZA OS CARDS */
     justify-content: center; 
+    
+    /* Garante que o grid ocupe a largura total para poder centralizar */
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .product-card {
     background: var(--dark-card);
     border-radius: 15px;
-    padding: 20px; 
-    transition: var(--transition);
+    padding: 20px;
     border: 1px solid #222;
-    text-align: center;   
-    display: flex;           
-    flex-direction: column;  
-    align-items: center;     
-    /* ADICIONADO: Define um limite para o card não esticar quando estiver sozinho */
+    display: flex;
+    flex-direction: column; /* Força texto abaixo da imagem */
+    align-items: center;
+    text-align: center;
     width: 100%;
-    max-width: 400px; 
-    /* Garante que ele fique centralizado na coluna dele */
-    margin: 0 auto; 
+    transition: var(--transition);
 }
 
 .product-card img {
     width: 100%;
-    /* Mantemos a altura fixa para não distorcer */
     height: 250px;
     object-fit: cover;
     border-radius: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 15px; /* Espaço entre imagem e título */
 }
 
-
 /* WHATSAPP & FOOTER */
-.whatsapp-btn {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background: #25d366;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
+.btn-whatsapp {
+    display: inline-flex;
     align-items: center;
-    color: #fff;
-    font-size: 30px;
-    z-index: 9999;
+    justify-content: center;
+    background-color: #DFFF00;
+    color: #000;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: 0.3s;
+    width: auto; /* Garante que ele não ocupe 100% se não precisar */
+    margin-top: 20px;
 }
 
 footer {
@@ -206,43 +205,165 @@ footer {
     width: 100% !important;
     display: block !important;
     height: auto !important;
-    position: relative !important;
-    overflow: visible !important;
 }
 
+/* --- ESTRUTURA BASE (MOBILE FIRST) --- */
 .contato-grid {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important; 
-    gap: 80px !important; 
+    display: flex !important;
+    flex-direction: column !important; /* Força um embaixo do outro no celular */
     align-items: center !important;
+    gap: 40px !important;
+    width: 100% !important;
     max-width: 1200px;
-    margin: 50px auto 0 auto;
-}
-
-.contato-card {
-    background: linear-gradient(145deg, #1a1a1a, #0a0a0a) !important;
-    padding: 50px !important;
-    border-radius: 25px !important;
-    border: 1px solid #222 !important;
-    text-align: center !important;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.5) !important;
-    height: auto !important;
+    margin: 40px auto 0 auto;
 }
 
 .contato-info {
+    width: 100% !important;
     display: flex !important;
     flex-direction: column !important;
-    gap: 30px !important;
+    align-items: center !important; /* Centraliza ícones e textos no celular */
+    text-align: center !important;
+    gap: 25px !important;
 }
 
-.info-item {
+.contato-card {
+    width: 100% !important;
+    max-width: 450px !important; /* Impede de ficar largo demais */
+    background: linear-gradient(145deg, #1a1a1a, #0a0a0a) !important;
+    padding: 30px !important;
+    border-radius: 20px !important;
+    border: 1px solid #222 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+}
+
+/* Ajuste do botão para nunca vazar */
+.contato-card .btn-whatsapp, 
+.contato-card a[href*="wa.me"] {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    max-width: 300px !important;   /* Diminuímos um pouco a largura máxima */
+    
+    /* AQUI ESTÁ O SEGREDO */
+    margin-top: 30px !important;    /* EMPURRA O BOTÃO PARA BAIXO */
+    padding: 12px 20px !important;  /* DIMINUI A ALTURA DO BOTÃO (era 18px) */
+    
+    background-color: #DFFF00 !important;
+    color: #000 !important;
+    border-radius: 50px !important;
+    font-size: 0.95rem !important;  /* Diminuímos um tiquinho a fonte */
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    text-decoration: none !important;
+    transition: transform 0.3s ease !important;
+    box-sizing: border-box !important;
+}
+
+/* --- AJUSTE EXCLUSIVO PARA DESKTOP --- */
+@media (min-width: 992px) {
+    .contato-grid {
+        flex-direction: row !important; /* Lado a lado apenas no PC */
+        justify-content: space-between !important;
+        align-items: center !important;
+    }
+
+    .contato-info {
+        width: 50% !important;
+        align-items: flex-start !important; /* Alinha textos à esquerda no PC */
+        text-align: left !important;
+    }
+
+    .contato-card {
+        width: 45% !important;
+    }
+}
+
+
+
+@media (max-width: 992px) {
+    /* Container pai que segura a lista de contatos */
+    .contato-info {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important; /* Centraliza a lista toda na tela */
+        gap: 30px !important;
+        width: 100% !important;
+    }
+
+    /* O ITEM (Ícone + Textos) */
+    .contato-item {
+        display: flex !important;
+        flex-direction: row !important; /* FORÇA LADO A LADO */
+        align-items: center !important; /* Alinha o ícone verticalmente com o texto */
+        justify-content: flex-start !important;
+        gap: 20px !important; /* Espaço entre ícone e o bloco de texto */
+        width: 100% !important;
+        max-width: 300px !important; /* Limita a largura para o conjunto não espalhar */
+        margin: 0 auto !important; /* Centraliza o conjunto na tela */
+    }
+
+    /* Alinhamento do texto interno */
+    .contato-item div {
+        display: flex !important;
+        flex-direction: column !important;
+        text-align: left !important; /* Texto alinhado à esquerda em relação ao ícone */
+    }
+
+    .contato-item h3 {
+        font-size: 1.1rem !important;
+        margin-bottom: 2px !important;
+    }
+
+    .contato-item p, .contato-item a {
+        font-size: 0.9rem !important;
+        margin: 0 !important;
+    }
+}
+
+/* Estilo específico para o botão de contato dentro do card */
+.contato-card .btn-whatsapp, 
+.contato-card a[href*="wa.me"] {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;        /* Ocupa a largura disponível no card */
+    max-width: 350px !important;   /* Mas não deixa ele ficar gigante no PC */
+    padding: 18px 20px !important;
+    background-color: #DFFF00 !important;
+    color: #000 !important;
+    border-radius: 50px !important;
+    font-size: 1rem !important;
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    text-decoration: none !important;
+    transition: transform 0.3s ease !important;
+    
+    /* ISSO impede o texto de sair do botão */
+    white-space: normal !important; 
+    text-align: center !important;
+    box-sizing: border-box !important;
+}
+
+.contato-card .btn-whatsapp:hover {
+    transform: scale(1.05) !important;
+}
+
+
+/* --- CONFIGURAÇÃO DOS ITENS DE CONTATO (WHATS/INSTA) --- */
+.info-item, .contato-item {
     display: flex !important;
     align-items: center !important; 
     gap: 20px !important;
     text-align: left !important;
+    width: 100% !important;
 }
 
-.info-item i {
+.info-item i, .contato-item i {
     font-size: 1.8rem !important;
     color: var(--neon-yellow) !important;
     background: rgba(223, 255, 0, 0.1) !important;
@@ -253,19 +374,96 @@ footer {
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
+    flex-shrink: 0 !important; /* Impede o ícone de amassar */
 }
 
-.info-item h3 {
-    font-size: 1.2rem !important;
+.info-item h3, .contato-item h3 {
+    font-size: 1.1rem !important;
     color: var(--white) !important;
-    margin-bottom: 5px !important;
+    margin: 0 0 2px 0 !important;
     text-transform: uppercase !important;
 }
 
-.info-item p {
+.info-item p, .contato-item p, .info-item a, .contato-item a {
     color: var(--text-gray) !important;
-    font-size: 1rem !important;
+    font-size: 0.95rem !important;
     margin: 0 !important; 
+    text-decoration: none !important;
+}
+
+/* --- AJUSTE PARA CENTRALIZAR NO MOBILE --- */
+@media (max-width: 992px) {
+    .contato-info {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important; /* Centraliza a lista na tela */
+        gap: 25px !important;
+    }
+
+    .info-item, .contato-item {
+        justify-content: flex-start !important;
+        max-width: 320px !important; /* Define uma largura para o conjunto ficar unido */
+        margin: 0 auto !important; /* Centraliza o conjunto no meio da tela */
+    }
+}
+
+/* --- RESOLUÇÃO DOS FILTROS --- */
+.filter-menu {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    flex-direction: row !important;
+    justify-content: flex-start !important;
+    gap: 12px !important;
+    margin: 30px 0 !important;
+    padding: 10px 5% !important;
+    width: 100% !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none; 
+}
+
+.filter-menu::-webkit-scrollbar {
+    display: none !important;
+}
+
+.btn-filter {
+    flex: 0 0 auto !important;
+    min-width: fit-content !important;
+    white-space: nowrap !important;
+    background: transparent;
+    color: #fff;
+    border: 1px solid #DFFF00;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-filter.active {
+    background-color: #DFFF00 !important;
+    color: #000 !important;
+}
+
+/* --- RESPONSIVIDADE GERAL --- */
+@media (max-width: 992px) {
+    .contato {
+        padding: 60px 5% 100px 5% !important;
+    }
+    .contato-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 40px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.1rem !important; 
+        line-height: 1.2 !important;
+    }
 }
 
 
